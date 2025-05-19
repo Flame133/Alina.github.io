@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Путь в ВУЗ | Образовательный журнал об успешном поступлении</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto+Slab:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Base styles */
+        :root {
+            --primary-color: #4361ee;
+            --primary-dark: #3a56d4;
+            --secondary-color: #3f37c9;
+            --accent-color: #4895ef;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --gray-color: #6c757d;
+            --light-gray: #e9ecef;
+            --success-color: #4cc9f0;
+            --warning-color: #f72585;
+            --font-main: 'Montserrat', sans-serif;
+            --font-secondary: 'Roboto Slab', serif;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--dark-color);
+            line-height: 1.6;
+            background-color: #fff;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .btn--primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn--primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn--secondary {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .btn--secondary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn--outline {
+            background-color: transparent;
+            border-color: white;
+            color: white;
+        }
+
+        .btn--outline:hover {
+            background-color: white;
+            color: var(--primary-color);
+        }
+
+        .section-title {
+            font-family: var(--font-secondary);
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            color: var(--dark-color);
+        }
+
+        .section-title--light {
+            color: white;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-color);
+            margin: 1rem auto 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: white;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .header__inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark-color);
+            font-family: var(--font-secondary);
+        }
+
+        .logo__accent {
+            color: var(--primary-color);
+        }
+
+        .logo--footer {
+            color: white;
+        }
+
+        .logo--footer .logo__accent {
+            color: var(--accent-color);
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav__link {
+            font-weight: 600;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav__link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .nav__link:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark-color);
+            cursor: pointer;
+        }
+
+        /* Hero section */
+        .hero {
+            height: 100vh;
+            min-height: 600px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .hero__content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero__title {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-family: var(--font-secondary);
+            line-height: 1.2;
+        }
+
+        .hero__subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+
+        .hero .btn {
+            margin: 0 10px;
+        }
+
+        /* Features section */
+        .features {
+            padding: 5rem 0;
+        }
+
+        .features__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-card__icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card__title {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            font-family: var(--font-secondary);
+        }
+
+        .feature-card__text {
+            color: var(--gray-color);
+        }
+
+        /* Articles section */
+        .articles {
+            padding: 5rem 0;
+            background-color: var(--light-gray);
+        }
+
+        .articles__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .article-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .article-card__image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .article-card__tag {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .article-card__content {
+            padding: 1.5rem;
+        }
+
+        .article-card__title {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            font-family: var(--font-secondary);
+        }
+
+        .article-card__excerpt {
+            color: var(--gray-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .article-card__meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.875rem;
+            color: var(--gray-color);
+        }
+
+        /* Guides section */
+        .guides {
+            padding: 5rem 0;
+        }
+
+        .guides__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .guide-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .guide-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .guide-card__number {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 3rem;
+            font-weight: 700;
+            color: rgba(67, 97, 238, 0.1);
+            z-index: 0;
+        }
+
+        .guide-card__title {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            font-family: var(--font-secondary);
+            position: relative;
+            z-index: 1;
+        }
+
+        .guide-card__text {
+            color: var(--gray-color);
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .guide-card__link {
+            color: var(--primary-color);
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+        }
+
+        .guide-card__link:hover {
+            text-decoration: underline;
+        }
+
+        /* Testimonials section */
+        .testimonials {
+            padding: 5rem 0;
+            background-color: var(--light-gray);
+        }
+
+        .testimonials__slider {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: var(--box-shadow);
+        }
+
+        .testimonial-card__text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .testimonial-card__text::before {
+            content: '"';
+            font-size: 3rem;
+            color: var(--primary-color);
+            opacity: 0.2;
+            position: absolute;
+            top: -1rem;
+            left: -1rem;
+        }
+
+        .testimonial-card__author {
+            display: flex;
+            align-items: center;
+        }
+
+        .testimonial-card__photo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 1rem;
+        }
+
+        .testimonial-card__name {
+            font-weight: 600;
+        }
+
+        .testimonial-card__position {
+            font-size: 0.875rem;
+            color: var(--gray-color);
+        }
+
+        /* Subscribe section */
+        .subscribe {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+
+        .subscribe__inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .subscribe__content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .subscribe__text {
+            opacity: 0.9;
+            max-width: 500px;
+        }
+
+        .subscribe-form {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .subscribe-form__input {
+            flex: 1;
+            min-width: 200px;
+            padding: 12px 20px;
+            border-radius: 30px;
+            border: none;
+            font-family: var(--font-main);
+        }
+
+        .subscribe-form__input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 4rem 0 0;
+        }
+
+        .footer__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer__col {
+            padding: 1rem;
+        }
+
+        .footer__title {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            font-family: var(--font-secondary);
+        }
+
+        .footer__text {
+            margin: 1rem 0;
+            opacity: 0.8;
+        }
+
+        .footer__menu li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer__menu a {
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+
+        .footer__menu a:hover {
+            opacity: 1;
+            color: var(--accent-color);
+        }
+
+        .footer__contacts li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            opacity: 0.8;
+        }
+
+        .footer__contacts i {
+            margin-right: 0.75rem;
+            color: var(--accent-color);
+            width: 20px;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links__item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+        }
+
+        .social-links__item:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+        }
+
+        .footer__bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 2rem 0;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer__copyright {
+            opacity: 0.7;
+        }
+
+        .footer__links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer__links a {
+            opacity: 0.7;
+            transition: var(--transition);
+        }
+
+        .footer__links a:hover {
+            opacity: 1;
+            color: var(--accent-color);
+        }
+
+        /* Responsive styles */
+        @media (max-width: 992px) {
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .hero__title {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - 80px);
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 2rem;
+                transition: var(--transition);
+                box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav.active {
+                left: 0;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .hero__title {
+                font-size: 2rem;
+            }
+            
+            .hero__subtitle {
+                font-size: 1rem;
+            }
+            
+            .subscribe__inner {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .subscribe__text {
+                margin: 0 auto 1.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .section-title {
+                font-size: 1.75rem;
+            }
+            
+            .hero {
+                min-height: 500px;
+            }
+            
+            .hero__title {
+                font-size: 1.75rem;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+            }
+            
+            .footer__bottom {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .footer__links {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__inner">
+                <a href="index.html" class="logo">
+                    <span class="logo__accent">Путь</span> в ВУЗ
+                </a>
+                <nav class="nav">
+                    <a href="#articles" class="nav__link">Статьи</a>
+                    <a href="#guides" class="nav__link">Гайды</a>
+                    <a href="#reviews" class="nav__link">Отзывы</a>
+                    <a href="#about" class="nav__link">О проекте</a>
+                    <a href="#contact" class="nav__link">Контакты</a>
+                </nav>
+                <button class="menu-toggle" id="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero__content">
+                <h1 class="hero__title">Путь в ВУЗ - ваш гид по успешному поступлению</h1>
+                <p class="hero__subtitle">Полезные статьи, личный опыт, советы экспертов и актуальная информация для абитуриентов</p>
+                <a href="#articles" class="btn btn--primary">Начать читать</a>
+                <a href="#subscribe" class="btn btn--outline">Подписаться</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="about">
+        <div class="container">
+            <h2 class="section-title">Почему наш журнал полезен абитуриентам?</h2>
+            <div class="features__grid">
+                <div class="feature-card">
+                    <div class="feature-card__icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3 class="feature-card__title">Опыт студентов</h3>
+                    <p class="feature-card__text">Реальные истории поступления от студентов топовых вузов</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card__icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3 class="feature-card__title">Актуальная статистика</h3>
+                    <p class="feature-card__text">Данные по проходным баллам и конкурсу прошлых лет</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card__icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="feature-card__title">Советы экспертов</h3>
+                    <p class="feature-card__text">Рекомендации от преподавателей и членов приемных комиссий</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-card__icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3 class="feature-card__title">Чек-листы</h3>
+                    <p class="feature-card__text">Пошаговые инструкции для подготовки к поступлению</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="articles" id="articles">
+        <div class="container">
+            <h2 class="section-title">Последние статьи</h2>
+            <div class="articles__grid">
+                <article class="article-card">
+                    <div class="article-card__image" style="background-image: url('https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');">
+                        <span class="article-card__tag">ЕГЭ</span>
+                    </div>
+                    <div class="article-card__content">
+                        <h3 class="article-card__title">Как подготовиться к ЕГЭ по математике за 3 месяца</h3>
+                        <p class="article-card__excerpt">Эффективные стратегии подготовки, даже если вы начали поздно...</p>
+                        <div class="article-card__meta">
+                            <span class="article-card__date">15 мая 2023</span>
+                            <span class="article-card__read-time">8 мин чтения</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="article-card">
+                    <div class="article-card__image" style="background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');">
+                        <span class="article-card__tag">Вузы</span>
+                    </div>
+                    <div class="article-card__content">
+                        <h3 class="article-card__title">Топ-10 вузов России по качеству образования в 2023</h3>
+                        <p class="article-card__excerpt">Анализ рейтингов и отзывов студентов о лучших университетах страны...</p>
+                        <div class="article-card__meta">
+                            <span class="article-card__date">10 мая 2023</span>
+                            <span class="article-card__read-time">12 мин чтения</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="article-card">
+                    <div class="article-card__image" style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');">
+                        <span class="article-card__tag">Советы</span>
+                    </div>
+                    <div class="article-card__content">
+                        <h3 class="article-card__title">Как написать мотивационное письмо для зарубежного вуза</h3>
+                        <p class="article-card__excerpt">Пошаговая инструкция и примеры успешных писем...</p>
+                        <div class="article-card__meta">
+                            <span class="article-card__date">5 мая 2023</span>
+                            <span class="article-card__read-time">10 мин чтения</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="text-center">
+                <a href="#" class="btn btn--secondary">Все статьи</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="guides" id="guides">
+        <div class="container">
+            <h2 class="section-title">Пошаговые гайды</h2>
+            <div class="guides__grid">
+                <div class="guide-card">
+                    <div class="guide-card__number">1</div>
+                    <h3 class="guide-card__title">Выбор специальности</h3>
+                    <p class="guide-card__text">Как определить, какая профессия вам подходит, и выбрать направление подготовки</p>
+                    <a href="#" class="guide-card__link">Читать гайд →</a>
+                </div>
+                <div class="guide-card">
+                    <div class="guide-card__number">2</div>
+                    <h3 class="guide-card__title">Подготовка к ЕГЭ</h3>
+                    <p class="guide-card__text">Составление плана подготовки, выбор репетитора и полезные ресурсы</p>
+                    <a href="#" class="guide-card__link">Читать гайд →</a>
+                </div>
+                <div class="guide-card">
+                    <div class="guide-card__number">3</div>
+                    <h3 class="guide-card__title">Подача документов</h3>
+                    <p class="guide-card__text">Какие документы нужны, сроки подачи и как увеличить шансы на поступление</p>
+                    <a href="#" class="guide-card__link">Читать гайд →</a>
+                </div>
+                <div class="guide-card">
+                    <div class="guide-card__number">4</div>
+                    <h3 class="guide-card__title">Олимпиады и льготы</h3>
+                    <p class="guide-card__text">Как использовать олимпиады для поступления без экзаменов или с преимуществами</p>
+                    <a href="#" class="guide-card__link">Читать гайд →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials" id="reviews">
+        <div class="container">
+            <h2 class="section-title">Истории успеха</h2>
+            <div class="testimonials__slider">
+                <div class="testimonial-card">
+                    <div class="testimonial-card__content">
+                        <p class="testimonial-card__text">"Благодаря статьям на этом сайте я смогла правильно подготовиться к ЕГЭ и поступить на бюджет в МГУ. Особенно помогли советы по тайм-менеджменту!"</p>
+                    </div>
+                    <div class="testimonial-card__author">
+                        <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Анна К." class="testimonial-card__photo">
+                        <div class="testimonial-card__info">
+                            <h4 class="testimonial-card__name">Анна К.</h4>
+                            <p class="testimonial-card__position">Студентка МГУ, факультет журналистики</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-card__content">
+                        <p class="testimonial-card__text">"Гайд по олимпиадам помог мне выиграть Всеросс по физике и поступить в МФТИ без экзаменов. Очень рекомендую этот ресурс всем абитуриентам!"</p>
+                    </div>
+                    <div class="testimonial-card__author">
+                        <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Дмитрий С." class="testimonial-card__photo">
+                        <div class="testimonial-card__info">
+                            <h4 class="testimonial-card__name">Дмитрий С.</h4>
+                            <p class="testimonial-card__position">Студент МФТИ, факультет общей и прикладной физики</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="subscribe" id="subscribe">
+        <div class="container">
+            <div class="subscribe__inner">
+                <div class="subscribe__content">
+                    <h2 class="section-title section-title--light">Подпишитесь на рассылку</h2>
+                    <p class="subscribe__text">Получайте полезные статьи, анонсы вебинаров и советы по подготовке к поступлению прямо на почту</p>
+                </div>
+                <form class="subscribe-form">
+                    <input type="email" placeholder="Ваш email" class="subscribe-form__input" required>
+                    <button type="submit" class="btn btn--primary">Подписаться</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__col">
+                    <a href="index.html" class="logo logo--footer">
+                        <span class="logo__accent">Путь</span> в ВУЗ
+                    </a>
+                    <p class="footer__text">Образовательный журнал об успешном поступлении в вузы России и зарубежья</p>
+                    <div class="social-links">
+                        <a href="#" class="social-links__item"><i class="fab fa-vk"></i></a>
+                        <a href="#" class="social-links__item"><i class="fab fa-telegram"></i></a>
+                        <a href="#" class="social-links__item"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-links__item"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer__col">
+                    <h3 class="footer__title">Разделы</h3>
+                    <ul class="footer__menu">
+                        <li><a href="#articles">Статьи</a></li>
+                        <li><a href="#guides">Гайды</a></li>
+                        <li><a href="#reviews">Отзывы</a></li>
+                        <li><a href="#about">О проекте</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <h3 class="footer__title">Контакты</h3>
+                    <ul class="footer__contacts">
+                        <li><i class="fas fa-envelope"></i> info@put-v-vuz.ru</li>
+                        <li><i class="fas fa-phone"></i> +7 (495) 123-45-67</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Москва, ул. Образцова, 15</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p class="footer__copyright">© 2023 Путь в ВУЗ. Все права защищены.</p>
+                <div class="footer__links">
+                    <a href="#">Политика конфиденциальности</a>
+                    <a href="#">Пользовательское соглашение</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile menu toggle
+            const menuToggle = document.getElementById('menu-toggle');
+            const nav = document.querySelector('.nav');
+            
+            menuToggle.addEventListener('click', function() {
+                nav.classList.toggle('active');
+                this.querySelector('i').classList.toggle('fa-times');
+                this.querySelector('i').classList.toggle('fa-bars');
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    if (nav.classList.contains('active')) {
+                        nav.classList.remove('active');
+                        menuToggle.querySelector('i').classList.toggle('fa-times');
+                        menuToggle.querySelector('i').classList.toggle('fa-bars');
+                    }
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Header scroll effect
+            const header = document.querySelector('.header');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    header.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+                } else {
+                    header.style.boxShadow = 'none';
+                }
+            });
+            
+            // Testimonial slider (simple version)
+            const testimonials = document.querySelectorAll('.testimonial-card');
+            let currentTestimonial = 0;
+            
+            function showTestimonial(index) {
+                testimonials.forEach((testimonial, i) => {
+                    testimonial.style.display = i === index ? 'block' : 'none';
+                });
+            }
+            
+            if (testimonials.length > 1) {
+                // Only run slider if there are multiple testimonials
+                setInterval(() => {
+                    currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+                    showTestimonial(currentTestimonial);
+                }, 5000);
+            }
+            
+            // Initialize first testimonial
+            showTestimonial(0);
+        });
+    </script>
+</body>
+</html>
